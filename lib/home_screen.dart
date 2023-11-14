@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roziroti_assignment/shopping_filters.dart';
 
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -10,7 +9,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: Padding(
-          padding: const EdgeInsets.only(top: 8.0),
+          padding: const EdgeInsets.only(top: 8, left: 10),
           child: InkWell(
             onTap: () {},
             child: CircleAvatar(
@@ -49,7 +48,8 @@ class HomeScreen extends StatelessWidget {
             children: [
               TextField(
                 decoration: InputDecoration(
-                  hintText: 'Search...',
+                  contentPadding: const EdgeInsets.all(15),
+                  hintText: 'Search',
                   prefixIcon: const Icon(Icons.search),
                   suffixIcon: const Icon(Icons.filter_alt_sharp),
                   border: OutlineInputBorder(
@@ -60,79 +60,119 @@ class HomeScreen extends StatelessWidget {
                   fillColor: Colors.grey[200],
                 ),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text('Special Offers',style: TextStyle(fontWeight: FontWeight.w800,fontSize: 18)),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'See All',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      )
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      width: double.infinity,
-                      height: 200,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: const DecorationImage(
-                          image: NetworkImage(
-                              'https://c8.alamy.com/comp/2D7GAPB/online-sale-shopping-vector-banner-design-online-shopping-text-with-phone-cart-and-paper-bag-elements-in-smartphone-app-store-for-mobile-business-2D7GAPB.jpg'),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+                  const Text('Special Offers',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w800, fontSize: 18)),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'See All',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  )
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: double.infinity,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    image: const DecorationImage(
+                      image: NetworkImage(
+                          'https://c8.alamy.com/comp/2D7GAPB/online-sale-shopping-vector-banner-design-online-shopping-text-with-phone-cart-and-paper-bag-elements-in-smartphone-app-store-for-mobile-business-2D7GAPB.jpg'),
+                      fit: BoxFit.cover,
                     ),
                   ),
-                  const SizedBox(height: 10),
-                  GridView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4,
-                      crossAxisSpacing: 10.0,
-                      mainAxisSpacing: 10.0,
+                ),
+              ),
+              const SizedBox(height: 15),
+              GridView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4,
+                  crossAxisSpacing: 10.0,
+                  mainAxisSpacing: 20.0,
+                ),
+                itemCount: shoppingFilters.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {},
+                    child: Column(
+                      children: [
+                        Container(
+                          width: 60,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            color: Colors.grey[300],
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          child: Center(
+                            child: Icon(
+                              shoppingFilters[index].icon,
+                              size: 20,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          shoppingFilters[index].name,
+                          style: const TextStyle(
+                              fontSize: 12, fontWeight: FontWeight.w600),
+                        ),
+                      ],
                     ),
+                  );
+                },
+              ),
+              const SizedBox(height: 15),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Most Popular',
+                    style: TextStyle(fontWeight: FontWeight.w800, fontSize: 18),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'See All',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                  height: 60,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
                     itemCount: shoppingFilters.length,
                     itemBuilder: (context, index) {
-                      return InkWell(
-                        onTap: () {},
-                        child: Column(
-                          children: [
-                            Container(
-                              width: 60,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                color: Colors.grey[300],
-                                borderRadius: BorderRadius.circular(100),
-                              ),
-                              child: Center(
-                                child: Icon(
-                                  shoppingFilters[index].icon,
-                                  size: 20,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
+                      return Container(
+                        padding: const EdgeInsets.fromLTRB(0,8,10,8),
+                        child: InkWell(
+                          child: OutlinedButton(
+                            style: OutlinedButton.styleFrom(
+                                backgroundColor: index == 0? Colors.black : Colors.transparent,
+                                foregroundColor: index== 0 ? Colors.white : Colors.black,
+                                side: const BorderSide(width: 2)),
+                            onPressed: () {},
+                            child: Text(
                               shoppingFilters[index].name,
-                              style: const TextStyle(fontSize: 12),
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.w600),
                             ),
-                          ],
+                          ),
                         ),
                       );
                     },
-                  ),
-                ],
-              )
+                  ))
             ],
           ),
         ),
