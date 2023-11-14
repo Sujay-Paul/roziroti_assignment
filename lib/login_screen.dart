@@ -46,6 +46,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       SizedBox(height: screeHeight * 0.02),
                       TextFormField(
+                        keyboardType: TextInputType.phone,
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.all(screeHeight * 0.02),
                           prefixIcon: const Icon(Icons.lock),
