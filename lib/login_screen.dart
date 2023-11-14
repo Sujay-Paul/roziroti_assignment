@@ -104,11 +104,12 @@ class LoginScreen extends StatelessWidget {
               children: [
                 const Text('Already have an account ?'),
                 TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Sign in',
-                      style: TextStyle(color: Colors.black),
-                    ))
+                  onPressed: () {},
+                  child: const Text(
+                    'Sign in',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                )
               ],
             )
           ],

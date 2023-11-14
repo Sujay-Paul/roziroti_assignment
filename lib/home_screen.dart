@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: Padding(
-          padding: const EdgeInsets.only(top: 8, left: 10),
+          padding: const EdgeInsets.only(top: 10, left: 10),
           child: InkWell(
             onTap: () {},
             child: CircleAvatar(
@@ -19,13 +19,13 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         title: const Padding(
-          padding: EdgeInsets.only(top: 8, right: 10),
+          padding: EdgeInsets.only(top: 6, right: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'Good Morning',
-                style: TextStyle(fontSize: 12),
+                style: TextStyle(fontSize: 14),
               ),
               Text(
                 'Andrew Ainsley',
@@ -37,13 +37,43 @@ class HomeScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {},
+            icon: const Icon(Icons.shopping_cart),
+          ),
+          IconButton(
+            onPressed: () {},
             icon: const Icon(Icons.favorite),
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        showUnselectedLabels: true,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home'
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_bag_outlined),
+            label: 'Cart'
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Orders'
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.wallet),
+            label: 'Wallet'
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile'
           ),
         ],
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(14),
+          padding: const EdgeInsets.all(15),
           child: Column(
             children: [
               TextField(
@@ -155,12 +185,15 @@ class HomeScreen extends StatelessWidget {
                     itemCount: shoppingFilters.length,
                     itemBuilder: (context, index) {
                       return Container(
-                        padding: const EdgeInsets.fromLTRB(0,8,10,8),
+                        padding: const EdgeInsets.fromLTRB(0, 8, 10, 8),
                         child: InkWell(
                           child: OutlinedButton(
                             style: OutlinedButton.styleFrom(
-                                backgroundColor: index == 0? Colors.black : Colors.transparent,
-                                foregroundColor: index== 0 ? Colors.white : Colors.black,
+                                backgroundColor: index == 0
+                                    ? Colors.black
+                                    : Colors.transparent,
+                                foregroundColor:
+                                    index == 0 ? Colors.white : Colors.black,
                                 side: const BorderSide(width: 2)),
                             onPressed: () {},
                             child: Text(
