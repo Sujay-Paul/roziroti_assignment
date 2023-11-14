@@ -4,7 +4,7 @@
             "outputFile": "com.example.roziroti_assignment.app-mergeDebugResources-9:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Users/sujaypaul/Desktop/Flutter Projects/roziroti_assignment/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/Users/sujaypaul/Documents/GitHub/roziroti_assignment/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

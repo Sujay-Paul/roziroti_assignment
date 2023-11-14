@@ -63,10 +63,29 @@ class HomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text('Special Offers'),
-                    TextButton(onPressed: () {}, child: const Text('See All',style: TextStyle(color: Colors.black),))
+                    TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'See All',
+                          style: TextStyle(color: Colors.black),
+                        ))
                   ],
                 ),
-                Container(),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    width: double.infinity,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      image: const DecorationImage(
+                        image: NetworkImage(
+                            'https://c8.alamy.com/comp/2D7GAPB/online-sale-shopping-vector-banner-design-online-shopping-text-with-phone-cart-and-paper-bag-elements-in-smartphone-app-store-for-mobile-business-2D7GAPB.jpg'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             )
           ],
