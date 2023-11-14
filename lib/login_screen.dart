@@ -8,6 +8,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screeHeight = MediaQuery.of(context).size.height;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: const BackButton(),
       ),
@@ -63,6 +64,7 @@ class LoginScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(height: screeHeight * 0.01),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -93,11 +95,67 @@ class LoginScreen extends StatelessWidget {
                 ),
               ],
             ),
-            const Row(
-              children: [],
-            ),
-            const Column(
-              children: [Text('or continue with')],
+            Column(
+              children: [
+                const Row(
+                  children: [
+                    Expanded(child: Divider(thickness: 0.5,)),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal:20),
+                      child: Text('or continue with',style: TextStyle(fontWeight: FontWeight.w600),),
+                    ),
+                    Expanded(child: Divider(thickness: 0.5,)),
+                  ],
+                ),
+                SizedBox(height: screeHeight*0.02),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: screeHeight*0.025),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20))),
+                        onPressed: () {},
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: screeHeight * 0.01,
+                            vertical: screeHeight * 0.025,
+                          ),
+                          child: const Icon(Icons.abc),
+                        ),
+                      ),
+                      OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20))),
+                        onPressed: () {},
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: screeHeight * 0.01,
+                            vertical: screeHeight * 0.025,
+                          ),
+                          child: const Icon(Icons.abc),
+                        ),
+                      ),
+                      OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20))),
+                        onPressed: () {},
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: screeHeight * 0.01,
+                            vertical: screeHeight * 0.025,
+                          ),
+                          child: const Icon(Icons.abc),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

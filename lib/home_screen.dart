@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:roziroti_assignment/app_bart.dart';
+import 'package:roziroti_assignment/bottom_navigation_bar.dart';
 import 'package:roziroti_assignment/shopping_filters.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -7,70 +9,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.only(top: 10, left: 10),
-          child: InkWell(
-            onTap: () {},
-            child: CircleAvatar(
-              radius: 40,
-              backgroundColor: Colors.grey[300],
-            ),
-          ),
-        ),
-        title: const Padding(
-          padding: EdgeInsets.only(top: 6, right: 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Good Morning',
-                style: TextStyle(fontSize: 14),
-              ),
-              Text(
-                'Andrew Ainsley',
-                style: TextStyle(fontSize: 19, fontWeight: FontWeight.w700),
-              ),
-            ],
-          ),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.shopping_cart),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.favorite),
-          ),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
-        showUnselectedLabels: true,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home'
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag_outlined),
-            label: 'Cart'
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Orders'
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.wallet),
-            label: 'Wallet'
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile'
-          ),
-        ],
-      ),
+      appBar: appBar,
+      bottomNavigationBar: bottomNavigationBar,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(15),
@@ -179,33 +119,33 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                  height: 60,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: shoppingFilters.length,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        padding: const EdgeInsets.fromLTRB(0, 8, 10, 8),
-                        child: InkWell(
-                          child: OutlinedButton(
-                            style: OutlinedButton.styleFrom(
-                                backgroundColor: index == 0
-                                    ? Colors.black
-                                    : Colors.transparent,
-                                foregroundColor:
-                                    index == 0 ? Colors.white : Colors.black,
-                                side: const BorderSide(width: 2)),
-                            onPressed: () {},
-                            child: Text(
-                              shoppingFilters[index].name,
-                              style:
-                                  const TextStyle(fontWeight: FontWeight.w600),
-                            ),
+                height: 60,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: shoppingFilters.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      padding: const EdgeInsets.fromLTRB(0, 8, 10, 8),
+                      child: InkWell(
+                        child: OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                              backgroundColor: index == 0
+                                  ? Colors.black
+                                  : Colors.transparent,
+                              foregroundColor:
+                                  index == 0 ? Colors.white : Colors.black,
+                              side: const BorderSide(width: 2)),
+                          onPressed: () {},
+                          child: Text(
+                            shoppingFilters[index].name,
+                            style: const TextStyle(fontWeight: FontWeight.w600),
                           ),
                         ),
-                      );
-                    },
-                  ))
+                      ),
+                    );
+                  },
+                ),
+              ),
             ],
           ),
         ),
