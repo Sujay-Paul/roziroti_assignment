@@ -1,6 +1,6 @@
 # roziroti_assignment
 
-A new Flutter project.
+https://github.com/Sujay-Paul/roziroti_assignment/assets/91372791/7514b805-aa16-41be-a880-2c35dcbdbb58
 
 ## Getting Started
 
